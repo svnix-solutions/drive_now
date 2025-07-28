@@ -1,0 +1,188 @@
+{
+ "actions": [],
+ "autoname": "field:zone_name",
+ "creation": "2025-07-28 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "zone_identification_section",
+  "zone_name",
+  "zone_description",
+  "city",
+  "column_break_1",
+  "zone_status",
+  "zone_type",
+  "priority",
+  "zone_color",
+  "zone_boundaries_section",
+  "center_latitude",
+  "center_longitude",
+  "column_break_2",
+  "radius",
+  "coverage_area",
+  "polygon_section",
+  "polygon_points",
+  "driver_assignment_section",
+  "assigned_drivers"
+ ],
+ "fields": [
+  {
+   "fieldname": "zone_identification_section",
+   "fieldtype": "Section Break",
+   "label": "Zone Identification"
+  },
+  {
+   "fieldname": "zone_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Zone Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "zone_description",
+   "fieldtype": "Text",
+   "label": "Zone Description"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "City",
+   "options": "City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "zone_status",
+   "fieldtype": "Select",
+   "label": "Zone Status",
+   "options": "Active\nInactive",
+   "default": "Active",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zone_type",
+   "fieldtype": "Select",
+   "label": "Zone Type",
+   "options": "Circular\nPolygon\nCustom",
+   "default": "Circular",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priority",
+   "default": "1",
+   "description": "Higher priority zones take precedence in overlapping areas"
+  },
+  {
+   "fieldname": "zone_color",
+   "fieldtype": "Color",
+   "label": "Zone Color",
+   "default": "#3498db",
+   "description": "Color for map visualization"
+  },
+  {
+   "fieldname": "zone_boundaries_section",
+   "fieldtype": "Section Break",
+   "label": "Zone Boundaries",
+   "depends_on": "eval:doc.zone_type === 'Circular'"
+  },
+  {
+   "fieldname": "center_latitude",
+   "fieldtype": "Float",
+   "label": "Center Latitude",
+   "precision": "6",
+   "depends_on": "eval:doc.zone_type === 'Circular'"
+  },
+  {
+   "fieldname": "center_longitude",
+   "fieldtype": "Float",
+   "label": "Center Longitude",
+   "precision": "6",
+   "depends_on": "eval:doc.zone_type === 'Circular'"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "radius",
+   "fieldtype": "Float",
+   "label": "Radius (km)",
+   "precision": "2",
+   "depends_on": "eval:doc.zone_type === 'Circular'"
+  },
+  {
+   "fieldname": "coverage_area",
+   "fieldtype": "Float",
+   "label": "Coverage Area (sq km)",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "polygon_section",
+   "fieldtype": "Section Break",
+   "label": "Polygon Points",
+   "depends_on": "eval:doc.zone_type === 'Polygon'"
+  },
+  {
+   "fieldname": "polygon_points",
+   "fieldtype": "Table",
+   "label": "Polygon Points",
+   "options": "Zone Polygon Point",
+   "depends_on": "eval:doc.zone_type === 'Polygon'"
+  },
+  {
+   "fieldname": "driver_assignment_section",
+   "fieldtype": "Section Break",
+   "label": "Driver Assignment"
+  },
+  {
+   "fieldname": "assigned_drivers",
+   "fieldtype": "Table",
+   "label": "Assigned Drivers",
+   "options": "Zone Driver Assignment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-28 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Drive Now",
+ "name": "Serviceable Zone",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -11,15 +11,15 @@ app_license = "mit"
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "drive_now",
-# 		"logo": "/assets/drive_now/logo.png",
-# 		"title": "Drive Now",
-# 		"route": "/drive_now",
-# 		"has_permission": "drive_now.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "drive_now",
+		"logo": "/assets/drive_now/logo.png",
+		"title": "Drive Now",
+		"route": "/app/drive-now",
+		"has_permission": "drive_now.api.permission.has_app_permission"
+	}
+]
 
 # Includes in <head>
 # ------------------

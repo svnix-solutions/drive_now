@@ -1,0 +1,323 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "RIDE-.#####",
+ "creation": "2025-07-28 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_details_section",
+  "customer",
+  "user",
+  "booking_type",
+  "status",
+  "payment_status",
+  "column_break_1",
+  "scheduled_time",
+  "duration",
+  "customer_otp",
+  "location_details_section",
+  "pickup_address",
+  "pickup_latitude",
+  "pickup_longitude",
+  "column_break_2",
+  "drop_off_address",
+  "drop_off_latitude",
+  "drop_off_longitude",
+  "driver_details_section",
+  "supplier",
+  "driver_name",
+  "driver_phone",
+  "column_break_3",
+  "serviceable_zone",
+  "city",
+  "vehicle_type",
+  "pricing_section",
+  "base_price",
+  "distance_price",
+  "usage_price",
+  "column_break_4",
+  "peak_hour_rate",
+  "total_amount",
+  "items_section",
+  "purchased_items",
+  "feedback_section",
+  "ride_rating",
+  "ride_feedback"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "booking_type",
+   "fieldtype": "Select",
+   "label": "Booking Type",
+   "options": "Immediate\nScheduled",
+   "default": "Immediate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nConfirmed\nIn Progress\nCompleted\nCancelled",
+   "default": "Draft",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status",
+   "options": "Pending\nPaid\nFailed\nRefunded",
+   "default": "Pending",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "scheduled_time",
+   "fieldtype": "Datetime",
+   "label": "Scheduled Time",
+   "depends_on": "eval:doc.booking_type === 'Scheduled'"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "label": "Duration"
+  },
+  {
+   "fieldname": "customer_otp",
+   "fieldtype": "Data",
+   "label": "Customer OTP",
+   "hidden": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "location_details_section",
+   "fieldtype": "Section Break",
+   "label": "Location Details"
+  },
+  {
+   "fieldname": "pickup_address",
+   "fieldtype": "Text",
+   "label": "Pickup Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pickup_latitude",
+   "fieldtype": "Float",
+   "label": "Pickup Latitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "pickup_longitude",
+   "fieldtype": "Float",
+   "label": "Pickup Longitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "drop_off_address",
+   "fieldtype": "Text",
+   "label": "Drop Off Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "drop_off_latitude",
+   "fieldtype": "Float",
+   "label": "Drop Off Latitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "drop_off_longitude",
+   "fieldtype": "Float",
+   "label": "Drop Off Longitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "driver_details_section",
+   "fieldtype": "Section Break",
+   "label": "Driver Details"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier (Driver)",
+   "options": "Supplier"
+  },
+  {
+   "fetch_from": "supplier.supplier_name",
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "label": "Driver Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "supplier.mobile_no",
+   "fieldname": "driver_phone",
+   "fieldtype": "Data",
+   "label": "Driver Phone",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "serviceable_zone",
+   "fieldtype": "Link",
+   "label": "Serviceable Zone",
+   "options": "Serviceable Zone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "City"
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Select",
+   "label": "Vehicle Type",
+   "options": "Sedan\nSUV\nHatchback\nPremium\nLuxury",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing"
+  },
+  {
+   "fieldname": "base_price",
+   "fieldtype": "Currency",
+   "label": "Base Price",
+   "precision": "2"
+  },
+  {
+   "fieldname": "distance_price",
+   "fieldtype": "Currency",
+   "label": "Distance Price",
+   "precision": "2"
+  },
+  {
+   "fieldname": "usage_price",
+   "fieldtype": "Currency",
+   "label": "Usage Price",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "peak_hour_rate",
+   "fieldtype": "Float",
+   "label": "Peak Hour Rate",
+   "default": "1.0",
+   "precision": "2"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "purchased_items",
+   "fieldtype": "Table",
+   "label": "Purchased Items",
+   "options": "Ride Item"
+  },
+  {
+   "fieldname": "feedback_section",
+   "fieldtype": "Section Break",
+   "label": "Feedback"
+  },
+  {
+   "fieldname": "ride_rating",
+   "fieldtype": "Rating",
+   "label": "Ride Rating"
+  },
+  {
+   "fieldname": "ride_feedback",
+   "fieldtype": "Text",
+   "label": "Ride Feedback"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-28 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Drive Now",
+ "name": "Ride",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Customer"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
