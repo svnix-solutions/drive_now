@@ -1,0 +1,65 @@
+{
+  "name": "Drive Now - Book Your Ride",
+  "short_name": "Drive Now",
+  "description": "Book rides instantly with Drive Now - Your trusted ride-booking service",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/frontend/",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/frontend/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/frontend/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/frontend/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/frontend/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["travel", "transportation", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "/frontend/screenshot1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "label": "Book a ride"
+    },
+    {
+      "src": "/frontend/screenshot2.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "label": "Track your ride"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book a Ride",
+      "short_name": "Book",
+      "description": "Book a new ride",
+      "url": "/frontend/#/book-ride",
+      "icons": [{ "src": "/frontend/book-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Ride History",
+      "short_name": "History",
+      "description": "View your ride history",
+      "url": "/frontend/#/ride-history",
+      "icons": [{ "src": "/frontend/history-icon.png", "sizes": "96x96" }]
+    }
+  ]
+}

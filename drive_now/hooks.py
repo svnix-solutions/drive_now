@@ -60,9 +60,14 @@ add_to_apps_screen = [
 # home_page = "login"
 
 # website user home page (by Role)
-# role_home_page = {
-# 	"Role": "home_page"
-# }
+role_home_page = {
+	"Customer": "/frontend/"
+}
+
+# Website Route Rules
+website_route_rules = [
+	{"from_route": "/frontend/<path:app_path>", "to_route": "frontend"},
+]
 
 # Generators
 # ----------
